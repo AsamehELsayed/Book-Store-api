@@ -6,7 +6,7 @@ const authorSchema = new Schema(
   {
     FirstName: { type: String, min: 2, max: 200, required: true },
     LastName: { type: String, min: 2, max: 200, required: true },
-    Image: { type: String, min: 2, required: true },
+    Image: { type: String, min: 2 ,default:"image"},
     Nationality: { type: String, min: 2, max: 200, required: true },
   },
   {

@@ -16,7 +16,13 @@ const userSchema = new Schema(
 );
 function validatleLogin(obj) {
   const schema = Joi.object({
-    email: Joi.string().min(3).trim().required(),
+    email: Joi.required(),
+    password: Joi.required(),
+  });
+  return schema.validate(obj);
+}
+function validatePassword(obj) {
+  const schema = Joi.object({
     password: Joi.string().trim().min(8).max(100).required(),
   });
   return schema.validate(obj);
@@ -44,5 +50,6 @@ module.exports = {
   User,
   validateRegisterUser,
   validatleLogin,
-  validateUpdateUser
+  validateUpdateUser,
+  validatePassword
 };
